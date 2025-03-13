@@ -1,5 +1,9 @@
+import Advertise from "@/components/Advertisement/Advertise";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center"></div>
+    <div className="flex flex-col items-center justify-center w-full h-full">
+      <Advertise />
+    </div>
   );
 }
