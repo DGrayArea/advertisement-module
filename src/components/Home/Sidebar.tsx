@@ -4,11 +4,13 @@ import { useTab } from "@/hooks/use-tab";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Sidebar = () => {
   const [isOpen, setiIsOpen] = useState(false);
   const { tab, selectTab } = useTab();
+  const router = useRouter();
 
   const toogleSidebar = () => {
     setiIsOpen(!isOpen);
@@ -40,7 +42,10 @@ const Sidebar = () => {
             </div>
             <div
               className={`text-white ${tab == tabs[1] ? "font-semibold" : "font-normal"} text-lg cursor-pointer`}
-              onClick={() => selectTab(tabs[1])}
+              onClick={() => {
+                // selectTab(tabs[1]);
+                router.push("/banner-setup");
+              }}
             >
               Banner Setup Page
             </div>
