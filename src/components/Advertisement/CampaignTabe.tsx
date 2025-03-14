@@ -40,9 +40,9 @@ const CampaignTableRow: React.FC<{ campaign: Campaign }> = ({ campaign }) => {
         {campaign.type}
       </TableCell>
       <TableCell className="text-base font-medium w-[120px]">
-        <div className="bg-gray-200 w-16 h-16 flex items-center justify-center rounded">
+        <div className="bg-[#F7F7F7] w-16 h-16 flex items-center justify-center rounded">
           <svg
-            className="w-8 h-8 text-gray-400"
+            className="w-8 h-8 text-[#AAAAAA]"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"

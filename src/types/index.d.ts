@@ -12,6 +12,18 @@ export type Campaign = {
   status: "active" | "pending" | "stop";
 };
 
+export type Promotion = {
+  name: string;
+  promotion: string;
+  type: string;
+  impressions: number;
+  clicks: number;
+  shares: number;
+  conversions: number;
+  length: string;
+  details: string;
+};
+
 export type TabState = {
   tab: string;
   status: Status;

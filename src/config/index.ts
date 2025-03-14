@@ -1,4 +1,4 @@
-import { Campaign } from "@/types";
+import { Campaign, Promotion } from "@/types";
 
 export const headerColor = "#324B51";
 export const navBarColor = "#456770";
@@ -193,6 +193,53 @@ export const campaigns: Campaign[] = [
     discount: "1 - 20%",
     history: "Review",
     status: "active",
+  },
+];
+
+export const promotions: Promotion[] = [
+  {
+    name: "Company A",
+    type: "1",
+    impressions: 1200,
+    clicks: 34,
+    shares: 89,
+    conversions: 67,
+    length: "1 month",
+    details: "Promotion link",
+    promotion: "Promotion Name",
+  },
+  {
+    name: "Company A",
+    type: "1",
+    impressions: 1200,
+    clicks: 34,
+    shares: 89,
+    conversions: 67,
+    length: "1 month",
+    details: "Promotion link",
+    promotion: "Promotion Name",
+  },
+  {
+    name: "Company A",
+    type: "1",
+    impressions: 1200,
+    clicks: 34,
+    shares: 89,
+    conversions: 67,
+    length: "1 month",
+    details: "Promotion link",
+    promotion: "Promotion Name",
+  },
+  {
+    name: "Company A",
+    type: "1",
+    impressions: 1200,
+    clicks: 34,
+    shares: 89,
+    conversions: 67,
+    length: "1 month",
+    details: "Promotion link",
+    promotion: "Promotion Name",
   },
 ];
 
