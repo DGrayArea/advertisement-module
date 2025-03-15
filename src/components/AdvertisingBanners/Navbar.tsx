@@ -1,16 +1,13 @@
 import {
-  ArrowLeftIcon,
   ChartColumnBigIcon,
   ChevronDownIcon,
   ClockArrowUp,
   CodeXml,
-  CogIcon,
   Redo2Icon,
   Settings,
   Undo2Icon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { SaveChanges } from "./SaveChanges";
 import { Button } from "../ui/button";
 
 const Navbar = () => {
