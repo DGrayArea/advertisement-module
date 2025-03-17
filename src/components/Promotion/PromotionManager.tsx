@@ -19,9 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { format } from "date-fns";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Advertise from "../Advertisement/Advertise";
 import SearchNFilters from "./SearchNFilters";
 
 export default function PromotionManager() {
@@ -373,7 +371,7 @@ export default function PromotionManager() {
                           <td className="p-3">
                             <Button
                               onClick={() => setAnalytics(true)}
-                              className="bg-[#4D7C8A] hover:bg-slate-700 cursor-pointer"
+                              className="bg-[#4D7C8A] hover:bg-slate-700 cursor-pointer rounded-sm"
                             >
                               Promo Analytics
                             </Button>

@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -11,291 +10,326 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { AlertCircle } from "lucide-react";
+import { ArrowLeftIcon, BellIcon, CalendarDaysIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Calendar } from "../ui/calendar";
+import { format } from "date-fns";
 
 export default function AddNewAdvertisement() {
+  const router = useRouter();
+
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
-    <div className="container mx-auto p-4 pb-16 max-w-5xl">
-      {/* Header with back button */}
-      <div className="flex items-center mb-6 border-b pb-4">
-        <Button variant="ghost" size="sm" className="mr-2">
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
-              fill="currentColor"
-              fillRule="evenodd"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          Add New Advertisement
-        </Button>
+    <div className="container mx-auto p-4 pb-16 max-w-full">
+      <div className="flex items-center mb-6 border-b border-[#E8E8E8] pb-4">
+        <div className="flex flex-row items-center">
+          <ArrowLeftIcon
+            className="w-16 cursor-pointer"
+            onClick={() => router.back()}
+          />
+          <span className="font-semibold text-2xl">Add New Advertisement</span>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Left Column - Company Information */}
-        <div className="space-y-4">
-          <div className="grid gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="company-name">Name of Company:</Label>
-              <Input id="company-name" defaultValue="Company 123 New" />
+      <div className="flex flex-col px-7">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 w-6xl">
+          <div className="space-y-4">
+            <div className="grid gap-4">
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="company-name" className="w-[160px]">
+                  Name of Company:
+                </Label>
+                <Input
+                  id="company-name"
+                  defaultValue="Company 123 New"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="contact-name" className="w-[160px]">
+                  Name of Contact:
+                </Label>
+                <Input
+                  id="contact-name"
+                  defaultValue="John Doe"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="contact-email" className="w-[160px]">
+                  Contact Email:
+                </Label>
+                <Input
+                  id="contact-email"
+                  type="email"
+                  defaultValue="johndoe@gmail.com"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="phone-number" className="w-[160px]">
+                  Phone Number:
+                </Label>
+                <Input
+                  id="phone-number"
+                  defaultValue="+1234567890"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="other-contact" className="w-[160px]">
+                  Other Contact:
+                </Label>
+                <Input
+                  id="other-contact"
+                  defaultValue="John Doe"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+
+              <div className="font-normal text-base flex flex-row items-center space-x-2">
+                <Label htmlFor="website" className="w-[160px]">
+                  Website:
+                </Label>
+                <Input
+                  id="website"
+                  defaultValue="https://company123new.com"
+                  className="font-normal text-sm w-[350px] h-[40px] border-[#E8E8E8] border"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4 text-[#494949]">
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Advertisement MLO:</h3>
+              <div className="space-y-4 flex flex-col items-start justify-start">
+                {[1, 2, 3, 4, 5].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center justify-start space-x-6"
+                  >
+                    <span className="text-base font-normal border border-[#E8E8E8] p-2 rounded w-[350px] h-[40px] text-nowrap">
+                      123 adname 02-03-2025 $200 6 months...
+                    </span>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="text-base font-normal hover:bg-[#4D7C8A]/95 bg-[#4D7C8A] h-[40px] text-white cursor-pointer"
+                    >
+                      Details
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8">
+          <h2 className="text-lg font-semibold mb-6">Add New Advertisement</h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 w-[820px] gap-y-4 font-normal text-lg">
+            <div className="space-x-2 flex flex-row items-center">
+              <Label htmlFor="banner-location" className="w-[160px]">
+                Select Banner Location:
+              </Label>
+              <Select defaultValue="homepage">
+                <SelectTrigger className="w-[200px] h-[40px]">
+                  <SelectValue placeholder="Select location" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="homepage">Homepage</SelectItem>
+                  <SelectItem value="category">Category</SelectItem>
+                  <SelectItem value="article">Article</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="contact-name">Name of Contact:</Label>
-              <Input id="contact-name" defaultValue="John Doe" />
+            <div className="space-x-2 flex flex-row items-center">
+              <Label htmlFor="banner-type" className="w-[160px]">
+                Select Type:
+              </Label>
+              <Select defaultValue="h2">
+                <SelectTrigger className="w-[200px] h-[40px]">
+                  <SelectValue placeholder="Select type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="h1">H1</SelectItem>
+                  <SelectItem value="h2">H2</SelectItem>
+                  <SelectItem value="h3">H3</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="contact-email">Contact Email:</Label>
+            <div className="space-x-2 flex flex-row items-center">
+              <Label htmlFor="start-date" className="w-[160px]">
+                Start Date:
+              </Label>
+              <div className="relative">
+                <div className="flex-1">
+                  <Popover>
+                    <PopoverTrigger asChild className="rounded-sm">
+                      <Button
+                        variant="outline"
+                        className="justify-start text-left font-normal w-[200px] h-[40px] rounded-sm"
+                      >
+                        {startDate ? (
+                          format(startDate, "MM-dd-yyyy")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarDaysIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={startDate}
+                        onSelect={setStartDate}
+                        disabled={(date) =>
+                          date > new Date() || date < new Date("1900-01-01")
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-x-2 flex flex-row items-center">
+              <Label htmlFor="length" className="w-[160px]">
+                Length:
+              </Label>
+              <Select defaultValue="6-months">
+                <SelectTrigger className="w-[200px] h-[40px]">
+                  <SelectValue placeholder="Select length" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="3-days">3 days</SelectItem>
+                  <SelectItem value="1-month">1 month</SelectItem>
+                  <SelectItem value="6-months">6 months</SelectItem>
+                  <SelectItem value="1-year">1 year</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-x-2 flex flex-row items-center">
+              <Label htmlFor="sales-value" className="w-[160px]">
+                Sales Value:
+              </Label>
               <Input
-                id="contact-email"
-                type="email"
-                defaultValue="johndoe@gmail.com"
+                id="sales-value"
+                defaultValue="$500"
+                className="h-[40px] w-[200px]"
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="phone-number">Phone Number:</Label>
-              <Input id="phone-number" defaultValue="+1234567890" />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="other-contact">Other Contact:</Label>
-              <Input id="other-contact" defaultValue="John Doe" />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="website">Website:</Label>
-              <Input id="website" defaultValue="https://company123new.com" />
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column - Advertisement MLO */}
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-base font-medium mb-3">Advertisement MLO:</h3>
-            <div className="space-y-2">
-              {[1, 2, 3, 4, 5].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between bg-gray-50 p-2 rounded"
-                >
-                  <span className="text-sm">
-                    123 adname 02-03-2025 $200 6 months...
-                  </span>
-                  <Button variant="secondary" size="sm">
-                    Details
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Advertisement Settings */}
-      <div className="mt-8">
-        <h2 className="text-lg font-medium mb-6">Add New Advertisement</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="banner-location">Select Banner Location:</Label>
-            <Select defaultValue="homepage">
-              <SelectTrigger>
-                <SelectValue placeholder="Select location" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="homepage">Homepage</SelectItem>
-                <SelectItem value="category">Category</SelectItem>
-                <SelectItem value="article">Article</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="banner-type">Select Type:</Label>
-            <Select defaultValue="h2">
-              <SelectTrigger>
-                <SelectValue placeholder="Select type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="h1">H1</SelectItem>
-                <SelectItem value="h2">H2</SelectItem>
-                <SelectItem value="h3">H3</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="start-date">Start Date:</Label>
-            <div className="relative">
-              <Input id="start-date" type="text" defaultValue="02-03-2025" />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-0 top-0 h-full"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.5 1C4.77614 1 5 1.22386 5 1.5V2H10V1.5C10 1.22386 10.2239 1 10.5 1C10.7761 1 11 1.22386 11 1.5V2H12.5C13.3284 2 14 2.67157 14 3.5V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V3.5C1 2.67157 1.67157 2 2.5 2H4V1.5C4 1.22386 4.22386 1 4.5 1ZM10 3V3.5C10 3.77614 10.2239 4 10.5 4C10.7761 4 11 3.77614 11 3.5V3H12.5C12.7761 3 13 3.22386 13 3.5V5H2V3.5C2 3.22386 2.22386 3 2.5 3H4V3.5C4 3.77614 4.22386 4 4.5 4C4.77614 4 5 3.77614 5 3.5V3H10ZM2 6V12.5C2 12.7761 2.22386 13 2.5 13H12.5C12.7761 13 13 12.7761 13 12.5V6H2Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </Button>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="length">Length:</Label>
-            <Select defaultValue="6-months">
-              <SelectTrigger>
-                <SelectValue placeholder="Select length" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="3-days">3 days</SelectItem>
-                <SelectItem value="1-month">1 month</SelectItem>
-                <SelectItem value="6-months">6 months</SelectItem>
-                <SelectItem value="1-year">1 year</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="sales-value">Sales Value:</Label>
-            <Input id="sales-value" defaultValue="$500" />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Discount Applied</Label>
-            <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded">
-              <span>1 - 20% discount</span>
-              <AlertCircle className="h-5 w-5 text-red-500" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Payment Type Selection */}
-      <div className="mt-8">
-        <h3 className="text-base font-medium mb-4">Choose Payment Type:</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
-          <div className="border rounded-md p-4 flex flex-col items-center justify-center border-black">
-            <div className="flex items-center justify-center space-x-2 mb-2">
-              <RadioGroup defaultValue="one-time">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="one-time" id="one-time" checked />
-                  <Label htmlFor="one-time">1 Time Payment</Label>
-                </div>
-              </RadioGroup>
-            </div>
-            <span className="text-2xl font-bold">$1400</span>
-          </div>
-
-          <div className="border rounded-md p-4 flex flex-col items-center justify-center">
-            <div className="flex items-center justify-center space-x-2 mb-2">
-              <RadioGroup defaultValue="monthly">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="monthly" id="monthly" />
-                  <Label htmlFor="monthly">Monthly</Label>
-                </div>
-              </RadioGroup>
-            </div>
-            <span className="text-2xl font-bold">$270</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Banner Upload Sections */}
-      <div className="mt-8 space-y-6">
-        <div>
-          <h3 className="text-base font-medium mb-3">
-            Upload Banner (Desktop)
-          </h3>
-          <p className="text-sm text-gray-500 mb-2">H2 size: 588×280</p>
-          <div className="relative border border-gray-300 rounded overflow-hidden max-w-xl">
-            <img
-              src="/api/placeholder/588/280"
-              alt="placeholder"
-              className="w-full"
-            />
-            <div className="absolute bottom-4 right-4 flex space-x-2">
-              <Button variant="secondary" size="sm">
-                done cropping
-              </Button>
-              <Button variant="secondary" size="sm">
-                replace image
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
-            <h3 className="text-base font-medium mb-3">
-              Upload Banner (Tablet)
-            </h3>
-            <p className="text-sm text-gray-500 mb-2">H2 size: 400×250</p>
-            <div className="relative border border-gray-300 rounded overflow-hidden">
-              <img
-                src="/api/placeholder/400/250"
-                alt="placeholder"
-                className="w-full"
-              />
-              <div className="absolute bottom-4 right-4 flex space-x-2">
-                <Button variant="secondary" size="sm">
-                  done cropping
-                </Button>
-                <Button variant="secondary" size="sm">
-                  replace image
-                </Button>
+            <div className="space-x-2 flex flex-row items-center">
+              <Label className="w-[160px]">Discount Applied</Label>
+              <div className="flex items-center space-x-2 border border-[#E8E8E8] p-2 rounded w-[200px] h-[40px]">
+                <span>1 - 20% discount</span>
               </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-base font-medium mb-3">
-              Upload Banner (Mobile)
-            </h3>
-            <p className="text-sm text-gray-500 mb-2">H2 size: 350×175</p>
-            <div className="relative border border-gray-300 rounded overflow-hidden">
-              <img
-                src="/api/placeholder/350/175"
-                alt="placeholder"
-                className="w-full"
-              />
-              <div className="absolute bottom-4 right-4 flex space-x-2">
-                <Button variant="secondary" size="sm">
-                  done cropping
-                </Button>
-                <Button variant="secondary" size="sm">
-                  replace image
-                </Button>
+              <div className="ring-1 ring-[#EA4335] bg-[#EA4335] rounded-full p-1 cursor-pointer ml-1">
+                <BellIcon className="w-[28px] h-fit text-white fill-white" />
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4">Choose Payment Type:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg">
+            <div className="border-2 rounded-md p-4 flex flex-col items-center justify-center border-[#494949] min-w-[168px] min-h-[160px]">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <RadioGroup defaultValue="one-time">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="one-time" id="one-time" checked />
+                    <Label htmlFor="one-time" className="text-sm font-semibold">
+                      1 Time Payment
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
+              <span className="text-4xl font-semibold">$1400</span>
+            </div>
 
-      {/* Proceed Button */}
-      <div className="mt-8">
-        <Button className="bg-teal-700 hover:bg-teal-800">
-          Proceed to check out
-        </Button>
+            <div className="border-2 rounded-md p-4 flex flex-col items-center justify-center border-[#E8E8E8] min-w-[168px] min-h-[160px]">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <RadioGroup defaultValue="one-time">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="one-time" id="one-time" checked />
+                    <Label htmlFor="one-time" className="text-sm font-semibold">
+                      Monthly
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
+              <span className="text-4xl font-semibold">$270</span>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8 space-y-6">
+          <div>
+            <h3 className="text-lg font-medium mb-3">
+              Upload Banner (Desktop)
+            </h3>
+            <p className="text-lg font-normal text-gray-500 mb-2">
+              H2 size: 588×280
+            </p>
+            <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
+              <img
+                src="/upload.png"
+                alt="placeholder"
+                className="w-[299px] h-[213px]"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 w-[700px]">
+            <div>
+              <h3 className="text-lg font-semibold mb-3">
+                Upload Banner (Tablet)
+              </h3>
+              <p className="text-lg font-normal text-gray-500 mb-2">
+                H2 size: 400×250
+              </p>
+              <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
+                <img
+                  src="/upload.png"
+                  alt="placeholder"
+                  className="w-[299px] h-[213px]"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">
+                Upload Banner (Mobile)
+              </h3>
+              <p className="text-lg font-normal text-gray-500 mb-2">
+                H2 size: 350×175
+              </p>
+              <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
+                <img
+                  src="/upload.png"
+                  alt="placeholder"
+                  className="w-[299px] h-[213px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mt-8">
+          <Button className="bg-[#4D7C8A] hover:bg-slate-700 cursor-pointer rounded-sm">
+            Proceed to checkout
+          </Button>
+        </div>
       </div>
     </div>
   );

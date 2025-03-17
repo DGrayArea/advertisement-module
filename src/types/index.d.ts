@@ -1,3 +1,14 @@
+export interface PromotionData {
+  id: string;
+  title: string;
+  discount: string;
+  startDate: string;
+  endDate: string;
+  bannerTypes: number[];
+  sections: string[];
+  minimumLength: string;
+}
+
 export type Campaign = {
   name: string;
   id: string;

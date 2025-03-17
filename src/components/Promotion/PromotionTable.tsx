@@ -11,57 +11,6 @@ import {
 } from "@/components/ui/table";
 import { Promotion } from "@/types";
 import { promotions } from "@/config";
-import { Card, CardContent } from "@/components/ui/card";
-
-function PromotionLink() {
-  const promotions = [
-    {
-      id: 1,
-      title: "Spring Sale",
-      url: "/promotions/spring-sale",
-    },
-    {
-      id: 2,
-      title: "New Collection",
-      url: "/promotions/new-collection",
-    },
-  ];
-
-  return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-5xl font-medium text-gray-800 pb-2 border-b border-gray-300 mb-8">
-        Promotion link
-      </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {promotions.map((promo) => (
-          <Card
-            className="overflow-hidden border-0 shadow-sm hover:shadow-md duration-300 transition-all"
-            key={promo.id}
-          >
-            <CardContent className="p-0">
-              <div className="bg-gray-100 aspect-video w-full flex items-center justify-center">
-                <div className="w-10 h-10 bg-gray-300 rounded-md flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-12 h-12 text-white"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z"
-                      transform="rotate(180 12 12)"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const PromotionTableRow: React.FC<{ promotion: Promotion }> = ({
   promotion,
