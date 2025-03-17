@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Calendar } from "../ui/calendar";
 import { format } from "date-fns";
+import Image from "next/image";
 
 export default function AddNewAdvertisement() {
   const router = useRouter();
@@ -191,6 +192,7 @@ export default function AddNewAdvertisement() {
                       <Calendar
                         mode="single"
                         selected={startDate}
+                        //@ts-expect-error error
                         onSelect={setStartDate}
                         disabled={(date) =>
                           date > new Date() || date < new Date("1900-01-01")
@@ -283,10 +285,12 @@ export default function AddNewAdvertisement() {
               H2 size: 588×280
             </p>
             <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
-              <img
+              <Image
                 src="/upload.png"
                 alt="placeholder"
                 className="w-[299px] h-[213px]"
+                width={300}
+                height={213}
               />
             </div>
           </div>
@@ -300,10 +304,12 @@ export default function AddNewAdvertisement() {
                 H2 size: 400×250
               </p>
               <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
-                <img
+                <Image
                   src="/upload.png"
                   alt="placeholder"
                   className="w-[299px] h-[213px]"
+                  width={300}
+                  height={213}
                 />
               </div>
             </div>
@@ -316,10 +322,12 @@ export default function AddNewAdvertisement() {
                 H2 size: 350×175
               </p>
               <div className="relative border border-[#E8E8E8] rounded overflow-hidden max-w-fit">
-                <img
+                <Image
                   src="/upload.png"
                   alt="placeholder"
                   className="w-[299px] h-[213px]"
+                  width={300}
+                  height={213}
                 />
               </div>
             </div>

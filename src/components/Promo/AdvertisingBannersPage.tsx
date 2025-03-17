@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { PromotionData } from "@/types";
 import { Separator } from "@/components/ui/separator";
 import { promotionsData } from "@/config";
