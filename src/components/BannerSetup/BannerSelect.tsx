@@ -23,7 +23,7 @@ const BannerSelect = ({
   const { selectBanner } = useTab();
 
   return (
-    <div className="flex flex-row items-center font-normal text-xl text-[#494949] space-x-4">
+    <div className="flex flex-row items-center font-normal text-base md:text-lg text-[#494949] space-x-2 whitespace-nowrap">
       <div>{label}:</div>
       <Select
         onValueChange={(e: BannerType) => {

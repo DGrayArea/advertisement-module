@@ -32,8 +32,8 @@ const BannerTable = () => {
   }, [banner, page]);
 
   return (
-    <div className="max-h-[85vh] overflow-auto scrollbar-hide transition transititon-all">
-      <Table className="w-full border-separate border-spacing-y-4 border-spacing-x-0 table-fixed">
+    <div className="max-h-[85vh] overflow-auto scrollbar-hide transition-all mobile:overflow-x-scroll md:overflow-visible">
+      <Table className="w-full border-separate border-spacing-y-4 border-spacing-x-0 mobile:table-fixed md:table-auto">
         <TableHeader>
           <TableRow className="bg-[#4D7C8A] hover:bg-[#4D7C8A]">
             <TableHead className="text-white font-semibold w-56">
@@ -48,11 +48,11 @@ const BannerTable = () => {
           {filteredData?.map((section, sectionIndex) => (
             <React.Fragment key={`section-${sectionIndex}`}>
               <TableRow className="cursor-pointer">
-                <TableCell className="font-medium p-2 cursor-pointer">
+                <TableCell className="font-medium p-2">
                   {section.headerType}
                 </TableCell>
                 {durations.map((duration, index) => (
-                  <TableCell key={index} className="p-2 text-left rounded-lg">
+                  <TableCell key={index} className="p-2 text-left">
                     {duration}
                   </TableCell>
                 ))}
@@ -66,9 +66,9 @@ const BannerTable = () => {
                   {row.values.map((value, colIndex) => (
                     <TableCell
                       key={colIndex}
-                      className="items-center min-w-[120px] min-h-[40px]"
+                      className="items-center mobile:min-w-[100px] mobile:min-h-[40px] md:min-w-[120px] md:min-h-[40px]"
                     >
-                      <div className="bg-[#F3F3F3] p-2 text-left rounded-sm border-2 border-[#E8E8E8] min-w-[120px] min-h-[40px]">
+                      <div className="bg-[#F3F3F3] p-2 text-left rounded-sm border-2 border-[#E8E8E8] mobile:min-w-[100px] mobile:min-h-[40px] md:min-w-[120px] md:min-h-[40px]">
                         {value}
                       </div>
                     </TableCell>

@@ -5,7 +5,7 @@ import Banner from "./Banner";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full px-8 transition">
+    <div className="flex flex-col w-full px-3 md:px-8 transition">
       <Navbar />
       <Banner />
     </div>

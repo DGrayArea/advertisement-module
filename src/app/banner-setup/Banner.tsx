@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <div className="flex flex-col w-full text-xl font-normal mt-7">
       <div className="flex flex-row w-full mb-7">
-        <div className="flex flex-row items-center space-x-6 w-full">
+        <div className="flex flex-row items-center space-x-6 max-w-screen overflow-auto md:w-full whitespace-nowrap">
           <div className="font-semibold text-[#494949]">Filter By:</div>
           <StatusSelect
             selectItems={["Home Page", "Event Page"]}

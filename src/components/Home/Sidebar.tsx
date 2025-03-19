@@ -23,7 +23,7 @@ const Sidebar = () => {
       {isOpen ? (
         <>
           <div className="flex flex-row items-center pt-4 justify-between px-4 h-[82px] border-b-2 border-b-white py-3">
-            <div className="text-white font-medium text-xl">
+            <div className="text-white font-medium text-lg md:text-xl">
               MiningLifeOnline
             </div>
             <div
@@ -35,13 +35,13 @@ const Sidebar = () => {
           </div>
           <div className="flex flex-col justify-between items-start px-4 h-[114px] mt-8">
             <div
-              className={`text-white ${tab == tabs[0] ? "font-semibold" : "font-normal"} text-lg cursor-pointer`}
+              className={`text-white ${tab == tabs[0] ? "font-semibold" : "font-normal"} text-base md:text-lg  whitespace-nowrap cursor-pointer`}
               onClick={() => selectTab(tabs[0])}
             >
               Advertisement DashBoard
             </div>
             <div
-              className={`text-white ${tab == tabs[1] ? "font-semibold" : "font-normal"} text-lg cursor-pointer`}
+              className={`text-white ${tab == tabs[1] ? "font-semibold" : "font-normal"} text-base md:text-lg  whitespace-nowrap cursor-pointer`}
               onClick={() => {
                 // selectTab(tabs[1]);
                 router.push("/banner-setup");
@@ -50,7 +50,7 @@ const Sidebar = () => {
               Banner Setup Page
             </div>
             <div
-              className={`text-white ${tab == tabs[2] ? "font-semibold" : "font-normal"} text-lg cursor-pointer`}
+              className={`text-white ${tab == tabs[2] ? "font-semibold" : "font-normal"} text-base md:text-lg  whitespace-nowrap cursor-pointer`}
               onClick={() => selectTab(tabs[2])}
             >
               Promotion

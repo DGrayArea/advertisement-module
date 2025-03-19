@@ -23,7 +23,7 @@ export function SaveChanges() {
       <AlertDialogTrigger asChild>
         <Button
           onClick={() => setChanges(true)}
-          className="bg-[#4D7C8A] min-h-[48px] min-w-[156px] px-4 py-2 text-white rounded-sm hover:bg-[#3a606d] transition text-lg font-normal cursor-pointer"
+          className="bg-[#4D7C8A] min-h-[36px] min-w-[116px]  md:min-h-[48px] md:min-w-[156px] px-2 py-1 md:px-4 md:py-2 text-white rounded-sm hover:bg-[#3a606d] transition text-base md:text-lg font-normal cursor-pointer"
         >
           {changes ? "Save Changes" : "Edit Banners"}
         </Button>

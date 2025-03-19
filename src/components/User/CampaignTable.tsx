@@ -95,8 +95,8 @@ const CampaignTable = () => {
   }, [status]);
 
   return (
-    <div className="w-full mt-2.5">
-      <div className="overflow-x-auto">
+    <div className=" max-w-screen overflow-auto md:w-full mt-2.5">
+      <div className="">
         <Table className="border-separate border-spacing-y-4 table-fixed w-full">
           <TableHeader className="sticky top-0 z-10">
             <TableRow className="bg-[#4D7C8A] hover:bg-[#4D7C8A] text-white text-lg font-semibold">

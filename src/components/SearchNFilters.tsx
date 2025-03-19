@@ -8,7 +8,7 @@ import CampaignTable from "./User/CampaignTable";
 const SearchNFilters = () => {
   return (
     <div className="flex flex-col w-full">
-      <div className="bg-white px-6 py-2 h-[72px] flex items-center justify-between">
+      <div className="bg-white px-2 md:px-6 py-2 max-w-screen overflow-auto md:h-[72px] flex items-center scrolbar-hide justify-between">
         <form
           onSubmit={(e) => e.preventDefault()}
           className="flex flex-row items-center"
@@ -22,7 +22,7 @@ const SearchNFilters = () => {
         </form>
         <div className="flex flex-row items-center space-x-6">
           <div className="flex flex-row items-center space-x-6">
-            <div className="font-medium text-lg text-[#494949] text-nowrap ml-3">
+            <div className="font-medium md:text-lg text-sm text-[#494949] text-nowrap ml-3">
               Filter By:
             </div>
             <FilterSelect
@@ -41,7 +41,7 @@ const SearchNFilters = () => {
           <div className="flex items-center space-x-2">
             <Label
               htmlFor="mobile-view"
-              className="font-normal text-lg text-[#494949] text-nowrap"
+              className="font-normal md:text-lg text-sm text-[#494949] text-nowrap"
             >
               Mobile View
             </Label>

@@ -91,8 +91,8 @@ export default function PromotionManager() {
             <div className="space-y-8 mt-4 w-full">
               <div className="font-normal text-xl w-full">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                  <div className="space-y-4 font-normal text-xl text-nowrap">
-                    <div className="flex flex-row items-center space-x-3">
+                  <div className="space-y-4 font-normal text-xl">
+                    <div className="flex flex-col md:flex-row md:items-center md:space-x-3 space-y-2 md:space-y-0">
                       <Label htmlFor="promotionName" className="min-w-[200px]">
                         Name the Promotion:
                       </Label>
@@ -100,11 +100,11 @@ export default function PromotionManager() {
                         id="promotionName"
                         value={promotionName}
                         onChange={(e) => setPromotionName(e.target.value)}
-                        className="w-[320px] h-[40px] rounded-sm"
+                        className="w-full md:w-[320px] h-[40px] rounded-sm"
                       />
                     </div>
 
-                    <div className="flex flex-row items-center space-x-3">
+                    <div className="flex flex-col md:flex-row md:items-center md:space-x-3 space-y-2 md:space-y-0">
                       <Label htmlFor="promotionId" className="min-w-[200px]">
                         ID:
                       </Label>
@@ -112,19 +112,19 @@ export default function PromotionManager() {
                         id="promotionId"
                         value={promotionId}
                         onChange={(e) => setPromotionId(e.target.value)}
-                        className="w-[320px] h-[40px] rounded-sm"
+                        className="w-full md:w-[320px] h-[40px] rounded-sm"
                       />
                     </div>
 
-                    <div className="flex flex-row items-center space-x-3">
+                    <div className="flex flex-col md:flex-row md:items-center md:space-x-3 space-y-2 md:space-y-0">
                       <Label className="min-w-[200px]">Date:</Label>
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-col md:flex-row items-center gap-2">
                         <div className="flex-1">
                           <Popover>
                             <PopoverTrigger asChild className="rounded-sm">
                               <Button
                                 variant="outline"
-                                className="justify-start text-left font-normal w-[200px] rounded-sm"
+                                className="justify-start text-left font-normal w-full md:w-[200px] rounded-sm"
                               >
                                 {startDate ? (
                                   format(startDate, "MM-dd-yyyy")
@@ -160,7 +160,7 @@ export default function PromotionManager() {
                             <PopoverTrigger asChild className="rounded-sm">
                               <Button
                                 variant="outline"
-                                className="justify-start text-left font-normal w-[200px] rounded-sm"
+                                className="justify-start text-left font-normal w-full md:w-[200px] rounded-sm"
                               >
                                 {endDate ? (
                                   format(endDate, "MM-dd-yyyy")
@@ -193,13 +193,13 @@ export default function PromotionManager() {
 
                     <Button
                       onClick={handleAddPromotion}
-                      className="bg-[#4D7C8A] hover:bg-slate-700 rounded-sm mt-4"
+                      className="bg-[#4D7C8A] hover:bg-slate-700 rounded-sm mt-4 w-full md:w-auto"
                     >
                       Add Promotion
                     </Button>
                   </div>
 
-                  <div className="space-x-4 flex flex-row items-start w-full justify-evenly">
+                  <div className="space-x-0 md:space-x-4 flex flex-col md:flex-row items-start w-full justify-evenly">
                     <div className="text-lg font-normal">
                       <Label className="text-xl font-normal">
                         Type of Promotion
@@ -224,11 +224,11 @@ export default function PromotionManager() {
                       </RadioGroup>
                     </div>
 
-                    <div className="flex flex-row items-center pt-[49px]">
+                    <div className="flex flex-col md:flex-row items-center pt-0 md:pt-[49px] space-y-2 md:space-y-0">
                       <Input
                         value={discountValue}
                         onChange={(e) => setDiscountValue(e.target.value)}
-                        className="w-[230px] h-[40px] border-2 border-[#E8E8E8] ml-auto"
+                        className="w-full md:w-[230px] h-[40px] border-2 border-[#E8E8E8] ml-auto"
                       />
                     </div>
 
@@ -240,7 +240,7 @@ export default function PromotionManager() {
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="outline"
-                            className="w-[220px] h-[40px] justify-between mt-2"
+                            className="w-full md:w-[220px] h-[40px] justify-between mt-2"
                           >
                             select
                             <span>
