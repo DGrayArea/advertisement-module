@@ -19,13 +19,16 @@ const FilterSelect = ({
   label: string;
 }) => {
   return (
-    <div className="flex flex-row items-center font-normal text-lg text-[#494949] space-x-4">
+    <div className="flex flex-row items-center font-normal text-base md:text-lg text-[#494949] space-x-4">
       <div>{label}</div>
 
       {type ? (
         <Select defaultValue={selectItems[0]}>
           <SelectTrigger className="w-[220px] h-[40px] text-lg">
-            <SelectValue className="text-lg" placeholder={selectItems[0]} />
+            <SelectValue
+              className=" text-basemd:text-lg"
+              placeholder={selectItems[0]}
+            />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>

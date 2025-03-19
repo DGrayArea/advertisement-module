@@ -72,7 +72,7 @@ export default function PromotionManager() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-white min-h-[91vh] p-5">
+    <div className="flex flex-col w-full bg-white min-h-screen md:min-h-[91vh] p-5 whitespace-nowrap">
       <>
         {analytics ? (
           <>
@@ -285,7 +285,7 @@ export default function PromotionManager() {
               </div>
 
               <div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto whitespace-nowrap">
                   <table className="w-full">
                     <thead>
                       <tr className="bg-[#4D7C8A] text-white">

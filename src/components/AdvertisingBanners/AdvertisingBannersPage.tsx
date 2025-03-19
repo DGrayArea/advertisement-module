@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 export default function AdvertisingBannersPage() {
   const router = useRouter();
   return (
-    <div className="container mx-auto space-y-6 border-[#E8E8E8] border rounded-md min-w-[1200px]">
-      <h1 className="text-[26px] font-semibold border-b border-[#E8E8E8] pb-2 py-16 px-5">
+    <div className="container mx-auto space-y-6 border-[#E8E8E8] border rounded-md min-w-[320px] md:min-w-[1200px]">
+      <h1 className="text-[20px] md:text-[26px] font-semibold border-b border-[#E8E8E8] pb-2 py-8 md:py-16 px-3 md:px-5">
         Advertising Banners
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-4 border-r h-full border-[#E8E8E8]">
-        <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 p-3 md:p-4 border-r h-full border-[#E8E8E8]">
+        <div className="space-y-4 md:space-y-6">
           <BannerCategory
             title="Home Page Banners"
             types={["H1", "H2", "H3", "H4", "H5", "H7"]}
@@ -62,15 +62,15 @@ export default function AdvertisingBannersPage() {
           /> */}
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <Card className="bg-[#F9F9F9] border-[#E8E8E8]">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold">
+              <CardTitle className="text-lg md:text-xl font-semibold">
                 Banner Specifications
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-2 text-base">
+            <CardContent className="space-y-3 md:space-y-4">
+              <div className="grid grid-cols-2 gap-2 text-sm md:text-base">
                 <div className="font-semibold">Type:</div>
                 <div className="font-bold">H2</div>
 
@@ -78,34 +78,14 @@ export default function AdvertisingBannersPage() {
                 <div className="font-bold">Home Page Banners</div>
               </div>
 
-              {/* <Tabs defaultValue="desktop">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="desktop">Desktop View</TabsTrigger>
-                  <TabsTrigger value="mobile">Mobile View</TabsTrigger>
-                </TabsList>
-                <TabsContent value="desktop" className="py-4">
-                  <div className="bg-gray-100 flex items-center justify-center h-32">
-                    <div className="bg-gray-300 w-16 h-12 flex items-center justify-center">
-                      <span className="text-gray-500 text-xs">688 × 300</span>
-                    </div>
-                  </div>
-                </TabsContent>
-                <TabsContent value="mobile" className="py-4">
-                  <div className="bg-gray-100 flex items-center justify-center h-32">
-                    <div className="bg-gray-300 w-12 h-8 flex items-center justify-center">
-                      <span className="text-gray-500 text-xs">360 × 200</span>
-                    </div>
-                  </div>
-                </TabsContent>
-              </Tabs> */}
               <Image
                 src="/view.png"
                 alt="view"
                 width={500}
                 height={300}
-                className="aspect-ratio"
+                className="aspect-ratio w-full"
               />
-              <div className="space-y-4 text-base">
+              <div className="space-y-3 md:space-y-4 text-sm md:text-base">
                 <h3 className="font-semibold w-full border-t border-t-[#E8E8E8] mt-6 pt-6 mb-6">
                   Select Advertising Period
                 </h3>
@@ -144,7 +124,7 @@ export default function AdvertisingBannersPage() {
                 </RadioGroup>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <h3 className="font-semibold text-base w-full border-t border-t-[#E8E8E8] mt-6 pt-6 pb-6">
                   Select Plan
                 </h3>
@@ -191,7 +171,7 @@ export default function AdvertisingBannersPage() {
 
               <Button
                 size="lg"
-                className="bg-[#4D7C8A] hover:bg-[#4D7C8A]/90 min-h-[40px] min-w-[210px] text-base font-normal cursor-pointer mt-[125px]"
+                className="bg-[#4D7C8A] hover:bg-[#4D7C8A]/90 min-h-[40px] min-w-[150px] md:min-w-[210px] text-sm md:text-base font-normal cursor-pointer mt-10 md:mt-[125px]"
                 onClick={() => router.push("checkout")}
               >
                 Proceed to check out
@@ -200,8 +180,8 @@ export default function AdvertisingBannersPage() {
           </Card>
         </div>
 
-        <div className="space-y-6 flex justify-start items-center flex-col border-l border-r border-[#E8E8E8] w-[280px] ml-10">
-          <div className="bg-[#9BB8F2] p-4 h-[200px] w-[200px] flex items-center justify-center rounded-xs">
+        <div className="space-y-4 md:space-y-6 flex justify-start items-center flex-col border-l border-r border-[#E8E8E8] w-full md:w-[280px] ml-0 md:ml-10">
+          <div className="bg-[#9BB8F2] p-4 h-[150px] md:h-[200px] w-[150px] md:w-[200px] flex items-center justify-center rounded-xs">
             <div className="bg-white w-20 h-16 flex items-center justify-center rounded p-2">
               <svg
                 className="h-[100px] w-[100px] text-gray-300"
@@ -220,7 +200,7 @@ export default function AdvertisingBannersPage() {
             </div>
           </div>
 
-          <div className="bg-[#9BB8F2] p-4 h-[200px] w-[200px] flex items-center justify-center rounded-xs">
+          <div className="bg-[#9BB8F2] p-4 h-[150px] md:h-[200px] w-[150px] md:w-[200px] flex items-center justify-center rounded-xs">
             <div className="bg-white w-20 h-16 flex items-center justify-center rounded p-2">
               <svg
                 className="h-[100px] w-[100px] text-gray-300"
@@ -241,8 +221,8 @@ export default function AdvertisingBannersPage() {
         </div>
       </div>
 
-      <div className="bg-[#9BB8F2] p-10 h-48 flex items-center justify-center rounded-md">
-        <div className="bg-white w-24 h-20 flex items-center justify-center rounded">
+      <div className="bg-[#9BB8F2] p-6 md:p-10 h-32 md:h-48 flex items-center justify-center rounded-md">
+        <div className="bg-white w-16 md:w-24 h-14 md:h-20 flex items-center justify-center rounded">
           <svg
             className="h-12 w-12 text-gray-300"
             fill="none"
@@ -265,23 +245,25 @@ export default function AdvertisingBannersPage() {
 
 function BannerCategory({ title, types }) {
   return (
-    <div className="border-b pb-4 border-[#E8E8E8]">
+    <div className="border-b pb-3 md:pb-4 border-[#E8E8E8]">
       <div className="flex justify-between items-center mb-2">
-        <h2 className="text-lg font-semibold text-[#4D7C8A]">{title}</h2>
+        <h2 className="text-base md:text-lg font-semibold text-[#4D7C8A]">
+          {title}
+        </h2>
         <Button
           size="lg"
-          className="bg-[#4D7C8A] hover:bg-[#4D7C8A]/90 min-h-[40px] min-w-[85px] text-base font-normal cursor-pointer"
+          className="bg-[#4D7C8A] hover:bg-[#4D7C8A]/90 min-h-[30px] md:min-h-[40px] min-w-[70px] md:min-w-[85px] text-sm md:text-base font-normal cursor-pointer"
         >
           View
         </Button>
       </div>
       <div>
-        <span className="font-semibold text-base mr-2">Type:</span>
-        <div className="flex flex-wrap gap-2 mt-1">
+        <span className="font-semibold text-sm md:text-base mr-2">Type:</span>
+        <div className="flex flex-wrap gap-1 md:gap-2 mt-1">
           {types.map((type) => (
             <span
               key={type}
-              className="px-2 py-1 text-base font-normal text-[#494949] rounded"
+              className="px-2 py-1 text-sm md:text-base font-normal text-[#494949] rounded"
             >
               {type}
             </span>

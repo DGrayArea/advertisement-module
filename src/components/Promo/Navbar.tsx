@@ -14,7 +14,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full flex flex-row items-center h-[52px] bg-[#324B51] font-medium text-sm justify-between">
+    <div className="max-w-screen md:w-full overflow-auto flex flex-row items-center h-[52px] bg-[#324B51] font-medium text-sm justify-between">
       <div className="flex flex-row items-center text-white space-x-8">
         <div className="ml-16">MigningLifeOnline</div>
         <Button
